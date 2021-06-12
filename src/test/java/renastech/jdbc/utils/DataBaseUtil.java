@@ -12,9 +12,9 @@ public class DataBaseUtil {
 
     //this method will do connection with oracle database
     public static void connectionDatabase(){
-        String url=ConfigurationReader.getProperty("oracle.databese.url");
-        String userName=ConfigurationReader.getProperty("oracle.databese.username");
-        String password=ConfigurationReader.getProperty("oracle.databese.password");
+        String url=ConfigurationReader.getProperty("oracle.database.url");
+        String userName=ConfigurationReader.getProperty("oracle.database.username");
+        String password=ConfigurationReader.getProperty("oracle.database.password");
 //
         try {
             connection= DriverManager.getConnection(url,userName,password);
@@ -25,6 +25,25 @@ public class DataBaseUtil {
         }
 
     }
+
+
+    //this method will run query
+    //we need statement and resultset
+
+
+    public static ResultSet runQuery(String query){
+
+        try {
+            statement= connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE , ResultSet.CONCUR_READ_ONLY);
+            resultSet=statement.executeQuery(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("Query Failed");
+        }
+
+        return resultSet;
+    }
+
 
 
 }
