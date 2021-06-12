@@ -45,5 +45,38 @@ public class DataBaseUtil {
     }
 
 
+    //create a utils that will print me total number of column
+    //return type should be int
+    //name of method getTotalColumnCount
+
+    //ResultSetMetaData
+    //getColumnCount
+
+    // ResultSetMetaData rmsd=resultSet.getMetaData();
+    //        //we will be able to use librarry from metadata
+    //
+    //        //such as column name column count
+    //        int columnCount=rmsd.getColumnCount();
+    //        System.out.println("columnCount = " + columnCount);
+
+    public static int getTotalColumnCount(){
+
+        int columnCount=0;
+        try {
+            ResultSetMetaData rmsd=resultSet.getMetaData();
+            columnCount=rmsd.getColumnCount();
+        } catch (SQLException throwables) {
+            System.out.println("Errror while counting column counts");
+            throwables.printStackTrace();
+        }
+
+        return columnCount;
+
+    }
+
+
+
+
+
 
 }

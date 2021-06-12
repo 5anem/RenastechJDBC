@@ -45,7 +45,6 @@ public class c1_ResultSetMetaData {
         //we will be able to use librarry from metadata
 
         //such as column name column count
-
         int columnCount=rmsd.getColumnCount();
         System.out.println("columnCount = " + columnCount);
 
