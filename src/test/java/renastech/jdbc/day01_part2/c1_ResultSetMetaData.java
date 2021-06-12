@@ -3,8 +3,11 @@ package renastech.jdbc.day01_part2;
 import renastech.jdbc.utils.DataBaseUtil;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class c1_ResultSetMetaData {
 
@@ -34,9 +37,44 @@ public class c1_ResultSetMetaData {
 
         ResultSet resultSet=DataBaseUtil.runQuery("select * from employees");
 
-        resultSet.next();
+        //resultSet.next();
 
-        System.out.println(resultSet.getString(3));
+        //System.out.println(resultSet.getString(3));
+
+        ResultSetMetaData rmsd=resultSet.getMetaData();
+        //we will be able to use librarry from metadata
+
+        //such as column name column count
+
+        int columnCount=rmsd.getColumnCount();
+        System.out.println("columnCount = " + columnCount);
+
+        //if you want to print 3 column name
+        String thirdColumn=rmsd.getColumnName(3);
+        System.out.println("thirdColumn = " + thirdColumn);
+
+        System.out.println("**********************");
+
+        for (int i=1 ; i <=columnCount ; i++){ //1 2 3 11
+            System.out.print(rmsd.getColumnName(i) + "\t");
+        }
+        System.out.println();
+
+        System.out.println("hello"+"\nworld ");
+        System.out.println("\tsql");
+
+        //if we want to store all calumnnames
+        //we can store them in the arraylist
+
+        List<String> columnNames=new ArrayList<>();
+
+        for (int i=1 ; i <= columnCount ; i++){
+            columnNames.add(rmsd.getColumnName(i));
+        }
+
+        System.out.println("columnNames = " + columnNames);
+
+        resultSet.close();
 
 
 
