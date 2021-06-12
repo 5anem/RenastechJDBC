@@ -55,8 +55,39 @@ public class c1_DataBase_Connection {
 
         //there will be 2 way to print data from database first by passing index number of column
         // or you need to pass column name .
-        System.out.println("First column value : " +resultSet.getString(1));
-        System.out.println("First column value : " +resultSet.getString("country_id"));
+        System.out.println("First column value  row 1: " +resultSet.getString(1));
+        System.out.println("First column value  row 1 : " +resultSet.getString("country_id"));
+
+
+        System.out.println("Second column value at row 1 :" + resultSet.getString(2));
+        System.out.println("Second column value at row 1 :" + resultSet.getString("country_name"));
+
+
+        //System.out.println(resultSet.getString(0));Invalid column index
+
+
+        //IF I WANT TO PRINT SECOND ROW  DATAS
+            //i will need to move cursor
+
+        resultSet.next();//cursor is on 2 row
+
+        resultSet.next();//cursor is on 3 row
+
+        System.out.println("Third column value at row 3 :" +resultSet.getString(3));
+        System.out.println("Third column value at row 3 :" +resultSet.getString("region_id"));
+
+
+
+        //closing connection
+        resultSet.close();
+        statement.close();
+        connection.close();
+
+        //since wwe close everyting you wont be able to run new query
+       // System.out.println("Third column value at row 3 :" +resultSet.getString(3));//Closed Resultset: getString
+
+
+
 
     }
 }
