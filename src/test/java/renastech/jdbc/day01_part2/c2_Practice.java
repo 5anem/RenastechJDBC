@@ -5,7 +5,7 @@ import renastech.jdbc.utils.DataBaseUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class c2_Practice {
+public class c2_Practice{
 
     public static void main(String[] args) throws SQLException {
 
@@ -15,7 +15,7 @@ public class c2_Practice {
 
         DataBaseUtil.connectionDatabase();
 //        ResultSet resultSet=DataBaseUtil.runQuery("select * from employees");
-        ResultSet resultSet=DataBaseUtil.runQuery("select * from regions");
+        ResultSet resultSet=DataBaseUtil.runQuery("select * from employees");
 
         int totalColumnCount=DataBaseUtil.getTotalColumnCount();
         System.out.println("totalColumnCount = " + totalColumnCount);
