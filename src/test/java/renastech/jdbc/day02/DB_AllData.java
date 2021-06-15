@@ -21,5 +21,15 @@ public class DB_AllData {
 
 
         DataBaseUtil.getAllData();
+
+        rs.next();//afterlast
+        System.out.println("rs.getString(1) = " + rs.getString(1));
+
+        //print me specific row and column value
+        //ex : row number 25 and print last name
+        //expected output : Mourgos
+
+
+
     }
 }
