@@ -134,6 +134,37 @@ public class DataBaseUtil {
     }
 
 
+    ///closing resultset ,statement and database after working on queries
+    public static void closingDatabase(){
+
+        try {
+            System.out.println("Databese is getting close");
+
+            if (resultSet != null){
+                System.out.println("Resultset closing");
+                //that meaans your resultset is still open
+                resultSet.close();
+
+            }
+            if (statement != null){
+                System.out.println("Statement closing");
+
+                statement.close();
+            }
+
+            if (connection != null) {
+                System.out.println("connection closing");
+                connection.close();
+            }
+
+        }catch (SQLException e){
+            System.out.println("Database closing error");
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 
 
