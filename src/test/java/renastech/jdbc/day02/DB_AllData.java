@@ -29,6 +29,9 @@ public class DB_AllData {
         //ex : row number 25 and print last name
         //expected output : Mourgos
 
+        rs.absolute(25);
+        System.out.println(rs.getString("last_name"));
+
 
 
     }

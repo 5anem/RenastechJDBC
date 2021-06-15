@@ -113,6 +113,26 @@ public class DataBaseUtil {
 
     }
 
+    //create a util that will print from specific row and cloumn
+    //to be able to do this you would need to have 2 parameter in your method
+    //first one row number second one your column name
+
+    public static String getColumnDataFrowRow(int rowNumber , String columnName){
+
+        String data="";
+        try {
+            resultSet.absolute(rowNumber);
+            data=resultSet.getString(columnName);
+
+        } catch (SQLException throwables) {
+            System.out.println("Errror while getting data");
+            throwables.printStackTrace();
+        }
+
+        return data;
+
+    }
+
 
 
 
